@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Anniversary 💗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5ebe0;
+            font-family: 'Helvetica', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .scrapbook {
+            max-width: 650px;
+            width: 100%;
+            background: #fefbf7;
+            border-radius: 20px;
+            padding: 30px 20px 35px;
+            position: relative;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+            border: 3px solid #e8d5c0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(230, 210, 190, 0.15) 28px, rgba(230, 210, 190, 0.15) 29px);
+        }
+        .washi-tape {
+            position: absolute;
+            width: 80px;
+            height: 25px;
+            border-radius: 3px;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.85;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .washi-pink {
+            background: rgba(255, 182, 193, 0.7);
+            border: 1px solid rgba(255, 150, 170, 0.4);
+            transform: rotate(-6deg);
+        }
+        .washi-blue {
+            background: rgba(173, 216, 230, 0.7);
+            border: 1px solid rgba(150, 200, 220, 0.4);
+            transform: rotate(8deg);
+        }
+        .washi-silver {
+            background: rgba(192, 192, 192, 0.6);
+            border: 1px solid rgba(180, 180, 180, 0.3);
+            transform: rotate(-4deg);
+        }
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+            animation: floatTwirl 4s ease-in-out infinite;
+        }
+        .deco:nth-child(1) { animation-duration: 4.2s; animation-delay: 0s; }
+        .deco:nth-child(2) { animation-duration: 5.6s; animation-delay: 0.7s; }
+        .deco:nth-child(3) { animation-duration: 3.8s; animation-delay: 1.2s; }
+        .deco:nth-child(4) { animation-duration: 5.0s; animation-delay: 0.3s; }
+        .deco:nth-child(5) { animation-duration: 4.5s; animation-delay: 1.0s; }
+        .deco:nth-child(6) { animation-duration: 5.8s; animation-delay: 0.5s; }
+        .deco:nth-child(7) { animation-duration: 4.0s; animation-delay: 1.5s; }
+        .deco:nth-child(8) { animation-duration: 4.8s; animation-delay: 0.9s; }
+        @keyframes floatTwirl {
+            0%   { transform: translateY(0px) rotate(0deg); }
+            50%  { transform: translateY(-12px) rotate(8deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .emoji-big {
+            font-size: 2.5rem;
+            display: inline-block;
+            animation: floatEmoji 3s ease-in-out infinite;
+        }
+        .emoji-small {
+            font-size: 1.2rem;
+            display: inline-block;
+            animation: floatEmoji 4s ease-in-out infinite 0.5s;
+        }
+        @keyframes floatEmoji {
+            0%   { transform: translateY(0px); }
+            50%  { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes floatBouquet {
+            0%   { transform: translateY(0px) rotate(-2deg); }
+            50%  { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(-2deg); }
+        }
+        .bouquet-float {
+            animation: floatBouquet 3.5s ease-in-out infinite;
+            transition: transform 0.3s, filter 0.3s;
+            max-width: 100%;
+            border-radius: 20px;
+            max-height: 350px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e8d5c0;
+        }
+        .scrapbook-title {
+            text-align: center;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            line-height: 1.3;
+        }
+        .scrapbook-title .letter {
+            display: inline-block;
+            transform: rotate(var(--rot, 0deg));
+            margin: 0 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .scrapbook-title .letter:nth-child(1) { --rot: -2deg; color: #e8436e; background: rgba(255, 182, 193, 0.2); }
+        .scrapbook-title .letter:nth-child(2) { --rot: 3deg; color: #4a90d9; background: rgba(173, 216, 230, 0.2); }
+        .scrapbook-title .letter:nth-child(3) { --rot: -1deg; color: #c0392b; background: rgba(255, 200, 200, 0.2); }
+        .scrapbook-title .letter:nth-child(4) { --rot: 4deg; color: #e8436e; background: rgba(255, 182, 193, 0.2); }
+        .scrapbook-title .letter:nth-child(5) { --rot: -3deg; color: #4a90d9; background: rgba(173, 216, 230, 0.2); }
+        .scrapbook-title .letter:nth-child(6) { --rot: 2deg; color: #c0392b; background: rgba(255, 200, 200, 0.2); }
+        .scrapbook-title .letter:nth-child(7) { --rot: -2deg; color: #e8436e; background: rgba(255, 182, 193, 0.2); }
+        .scrapbook-title .letter:nth-child(8) { --rot: 3deg; color: #4a90d9; background: rgba(173, 216, 230, 0.2); }
+        .scrapbook-title .letter:nth-child(9) { --rot: -1deg; color: #c0392b; background: rgba(255, 200, 200, 0.2); }
+        .scrapbook-title .letter:nth-child(10) { --rot: 4deg; color: #e8436e; background: rgba(255, 182, 193, 0.2); }
+        .scrapbook-title .letter:nth-child(11) { --rot: -3deg; color: #4a90d9; background: rgba(173, 216, 230, 0.2); }
+        .scrapbook-title .letter:nth-child(12) { --rot: 2deg; color: #c0392b; background: rgba(255, 200, 200, 0.2); }
+        .scrapbook-title .letter:nth-child(13) { --rot: -2deg; color: #e8436e; background: rgba(255, 182, 193, 0.2); }
+        .scrapbook-title .letter:nth-child(14) { --rot: 3deg; color: #4a90d9; background: rgba(173, 216, 230, 0.2); }
+        .scrapbook-title .letter:nth-child(15) { --rot: -1deg; color: #c0392b; background: rgba(255, 200, 200, 0.2); }
+        .scrapbook-title .letter:nth-child(16) { --rot: 4deg; color: #e8436e; background: rgba(255, 182, 193, 0.2); }
+        .scrapbook-sub {
+            text-align: center;
+            font-family: 'Bradley Hand', cursive;
+            color: #b97f6b;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 2px dotted #e8d5c0;
+            padding-bottom: 10px;
+        }
+        .envelopes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 25px 0 15px;
+        }
+        .envelope-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: rgba(255, 248, 240, 0.6);
+            padding: 12px 8px;
+            border-radius: 20px;
+            border: 1px solid #e8d5c0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: relative;
+        }
+        .envelope-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .envelope-item:active {
+            transform: scale(0.95);
+        }
+        .envelope-item img {
+            width: 100%;
+            max-width: 100px;
+            border-radius: 12px;
+            background: #f5ebe0;
+            padding: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e8d5c0;
+        }
+        .envelope-item::before {
+            content: "📌";
+            position: absolute;
+            top: -8px;
+            right: -5px;
+            font-size: 1.2rem;
+            transform: rotate(15deg);
+        }
+        .gift-box {
+            text-align: center;
+            margin: 20px 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            background: rgba(255, 248, 240, 0.6);
+            padding: 15px;
+            border-radius: 25px;
+            border: 1px solid #e8d5c0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .gift-box:hover {
+            transform: scale(1.03);
+        }
+        .gift-box:active {
+            transform: scale(0.95);
+        }
+        .gift-box img {
+            width: 80px;
+            background: #f5ebe0;
+            padding: 12px;
+            border-radius: 20px;
+            border: 1px solid #e8d5c0;
+        }
+        #passwordPage {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        #passwordPage h1 {
+            font-size: 2.2rem;
+            color: #8b5a4b;
+            font-family: 'Snell Roundhand', 'Bradley Hand', cursive;
+            margin-bottom: 10px;
+        }
+        #passwordPage p {
+            color: #b97f6b;
+            margin-bottom: 8px;
+            font-family: 'Bradley Hand', cursive;
+            font-size: 1.1rem;
+        }
+        .password-input {
+            padding: 14px 20px;
+            border-radius: 40px;
+            border: 2px dashed #d4a0a0;
+            font-size: 1rem;
+            width: 80%;
+            max-width: 280px;
+            margin-top: 10px;
+            outline: none;
+            text-align: center;
+            background: rgba(255, 248, 240, 0.8);
+            font-family: 'Bradley Hand', cursive;
+        }
+        .password-input:focus {
+            border-color: #8b5a4b;
+            background: white;
+        }
+        .password-btn {
+            background: #d4a0a0;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 14px 35px;
+            border-radius: 40px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-family: 'Bradley Hand', cursive;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .password-btn:hover {
+            background: #8b5a4b;
+            transform: scale(1.02);
+        }
+        .password-error {
+            color: #c0392b;
+            font-size: 1rem;
+            margin-top: 10px;
+            min-height: 30px;
+            font-family: 'Bradley Hand', cursive;
+        }
+        .round-indicator {
+            font-size: 0.9rem;
+            color: #b97f6b;
+            margin-top: 10px;
+            font-family: 'Bradley Hand', cursive;
+        }
+        #mainPage {
+            display: none;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeOverlay 0.4s ease;
+            padding: 20px;
+        }
+        .overlay.active {
+            display: flex;
+        }
+        @keyframes fadeOverlay {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .scrapbook-open {
+            background: #fefbf7;
+            border-radius: 30px;
+            padding: 30px 25px;
+            max-width: 550px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: envelopeGrow 0.5s ease forwards;
+            transform-origin: center center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            border: 1px solid #e8d5c0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(230, 210, 190, 0.08) 30px, rgba(230, 210, 190, 0.08) 31px);
+        }
+        @keyframes envelopeGrow {
+            0% { transform: scale(0.2) rotate(-5deg); opacity: 0; }
+            60% { transform: scale(1.03) rotate(1deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        .close-btn {
+            position: sticky;
+            top: 0;
+            float: right;
+            background: #d4a0a0;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .close-btn:hover {
+            background: #8b5a4b;
+            transform: rotate(90deg);
+        }
+        .scrapbook-letter {
+            background: #fdf8ed;
+            padding: 25px 20px;
+            border-radius: 15px;
+            font-family: 'Snell Roundhand', 'Bradley Hand', 'Apple Chancery', cursive;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c1810;
+            box-shadow: inset 0 0 0 2px #fff8, 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .scrapbook-letter h2 {
+            font-family: inherit;
+            color: #8b5a4b;
+            text-align: center;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .scrapbook-letter p {
+            margin-bottom: 12px;
+        }
+        .polaroid-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .polaroid {
+            background: white;
+            padding: 8px 8px 14px 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            width: 110px;
+            text-align: center;
+            border-radius: 4px;
+            transform: rotate(var(--rot, 0deg));
+            border: 1px solid #e8e0d5;
+            position: relative;
+        }
+        .polaroid::before {
+            content: "📎";
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-20deg);
+            font-size: 1rem;
+            opacity: 0.6;
+        }
+        .polaroid img {
+            width: 100%;
+            height: 95px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+        .polaroid-caption {
+            font-size: 0.65rem;
+            margin-top: 6px;
+            color: #886;
+            font-family: 'Bradley Hand', cursive;
+        }
+        .gift-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .doodles {
+            font-size: 2rem;
+            letter-spacing: 8px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #b97f6b;
+            margin-top: 20px;
+            font-family: 'Bradley Hand', cursive;
+            border-top: 1px dotted #e8d5c0;
+            padding-top: 15px;
+        }
+        @media (max-width: 480px) {
+            .envelopes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .envelope-item img {
+                max-width: 80px;
+            }
+            .scrapbook {
+                padding: 20px 15px 30px;
+            }
+            .scrapbook-letter {
+                font-size: 1rem;
+                padding: 18px 15px;
+            }
+            .scrapbook-title {
+                font-size: 1.6rem;
+            }
+            .washi-tape {
+                width: 60px;
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== PASSWORD PAGE ===== -->
+<div id="passwordPage" class="scrapbook">
+    <div style="text-align:center; margin-bottom:10px;">
+        <span class="emoji-big">💋</span>
+        <span class="emoji-small">❤️</span>
+        <span class="emoji-big">💗</span>
+        <span class="emoji-small">💋</span>
+        <span class="emoji-big">❤️</span>
+    </div>
+    <h1>🔐 Our Anniversary Vault</h1>
+    <p style="color:#b97f6b; margin-top:5px;">Answer all 3 questions to unlock your scrapbook 💗</p>
+    <div id="roundContainer">
+        <p style="font-weight:bold; margin-top:20px; color:#8b5a4b; font-family:'Bradley Hand', cursive; font-size:1.2rem;" id="roundQuestion">Round 1: What's my favorite game?</p>
+        <input type="text" class="password-input" id="passwordInput" placeholder="Type your answer..." autocomplete="off">
+        <br>
+        <button class="password-btn" id="passwordBtn">✧ Submit ✧</button>
+        <div class="password-error" id="passwordError"></div>
+        <div class="round-indicator" id="roundIndicator">Round 1 of 3</div>
+    </div>
+</div>
+
+<!-- ===== MAIN SCRAPBOOK PAGE ===== -->
+<div id="mainPage" class="scrapbook">
+    <!-- Washi Tapes -->
+    <div class="washi-tape washi-pink" style="top: 12px; left: 20px;"></div>
+    <div class="washi-tape washi-blue" style="bottom: 15px; right: 25px;"></div>
+    <div class="washi-tape washi-silver" style="top: 50px; right: 15px; width: 60px;"></div>
+    <div class="washi-tape washi-pink" style="bottom: 50px; left: 15px; width: 60px; transform: rotate(5deg);"></div>
+
+    <!-- Stars & Bows -->
+    <img class="deco" src="images/Star1.PNG" style="top:10px; left:-15px; width:50px;">
+    <img class="deco" src="images/Star2.PNG" style="top:50%; right:-18px; width:55px;">
+    <img class="deco" src="images/Star3.PNG" style="bottom:20px; left:-10px; width:45px;">
+    <img class="deco" src="images/Bow1.PNG" style="top:80px; right:-15px; width:42px;">
+    <img class="deco" src="images/Bow2.PNG" style="top:200px; left:-18px; width:45px;">
+    <img class="deco" src="images/Bow3.PNG" style="bottom:100px; right:-10px; width:44px;">
+    <img class="deco" src="images/Bow4.PNG" style="bottom:-15px; left:30%; width:50px;">
+
+    <!-- Floating Emojis -->
+    <div style="text-align:center; margin-bottom:10px;">
+        <span class="emoji-big">💋</span>
+        <span class="emoji-small">❤️</span>
+        <span class="emoji-big">💗</span>
+        <span class="emoji-small">💋</span>
+        <span class="emoji-big">❤️</span>
+    </div>
+
+    <!-- Cut-out Title -->
+    <div class="scrapbook-title">
+        <span class="letter">H</span><span class="letter">A</span><span class="letter">P</span><span class="letter">P</span><span class="letter">Y</span>
+        <span style="display:inline-block; width:8px;"></span>
+        <span class="letter">A</span><span class="letter">N</span><span class="letter">N</span><span class="letter">I</span><span class="letter">V</span><span class="letter">E</span><span class="letter">R</span><span class="letter">S</span><span class="letter">A</span><span class="letter">R</span><span class="letter">Y</span>
+        <span style="display:inline-block; width:8px;"></span>
+        <span class="letter">💗</span>
+    </div>
+
+    <div class="scrapbook-sub">to my favorite IT boy</div>
+
+    <!-- Envelopes -->
+    <div class="envelopes-grid">
+        <div class="envelope-item" data-target="letterContent">
+            <img src="images/envelope1.jpg" alt="Letter">
+        </div>
+        <div class="envelope-item" data-target="futureContent">
+            <img src="images/envelope2.jpg" alt="Our Future">
+        </div>
+        <div class="envelope-item" data-target="reasonsContent">
+            <img src="images/envelope3.jpg" alt="100 Reasons">
+        </div>
+        <div class="envelope-item" data-target="bouquetContent">
+            <img src="images/envelope4.jpg" alt="Bouquet">
+        </div>
+    </div>
+
+    <!-- Gift Box -->
+    <div class="gift-box" id="giftBox">
+        <img src="images/giftbox.jpg" alt="Gift">
+    </div>
+
+    <footer>made with ❤️ on GitHub</footer>
+</div>
+
+<!-- ===== OVERLAY ===== -->
+<div class="overlay" id="overlay">
+    <div class="scrapbook-open" id="envelopeOpen">
+        <button class="close-btn" id="closeOverlay">✕</button>
+        <div id="contentArea"></div>
+    </div>
+</div>
+
+<script>
+    // ===== PASSWORD LOGIC =====
+    const rounds = [
+        { question: "Round 1: What's my favorite game? 🎮", answer: "amongus", hint: "You've seen me play this a million times 😂" },
+        { question: "Round 2: What's my favorite day? (DDMM) ❤️", answer: "2402", hint: "Think about our first date 🥰" },
+        { question: "Round 3: What's the color of my toothbrush? 🤣", answer: "pink", hint: "It's literally in my bathroom. Think again 😭" }
+    ];
+
+    let currentRound = 0;
+
+    const passwordPage = document.getElementById('passwordPage');
+    const mainPage = document.getElementById('mainPage');
+    const roundQuestion = document.getElementById('roundQuestion');
+    const passwordInput = document.getElementById('passwordInput');
+    const passwordBtn = document.getElementById('passwordBtn');
+    const passwordError = document.getElementById('passwordError');
+    const roundIndicator = document.getElementById('roundIndicator');
+
+    function updateRound() {
+        if (currentRound < rounds.length) {
+            roundQuestion.textContent = rounds[currentRound].question;
+            roundIndicator.textContent = `Round ${currentRound + 1} of ${rounds.length}`;
+            passwordInput.value = '';
+            passwordError.textContent = '';
+            passwordInput.focus();
+        } else {
+            passwordPage.style.display = 'none';
+            mainPage.style.display = 'block';
+        }
+    }
+
+    passwordBtn.addEventListener('click', checkPassword);
+    passwordInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') checkPassword();
+    });
+
+    function checkPassword() {
+        const userAnswer = passwordInput.value.trim().toLowerCase();
+        const current = rounds[currentRound];
+        if (userAnswer === current.answer.toLowerCase()) {
+            currentRound++;
+            passwordError.textContent = '✅ Correct! 🎉';
+            passwordError.style.color = '#2e7d32';
+            setTimeout(() => updateRound(), 400);
+        } else {
+            passwordError.textContent = current.hint;
+            passwordError.style.color = '#8b5a4b';
+            passwordInput.value = '';
+            passwordInput.focus();
+        }
+    }
+
+    // ===== CONTENT =====
+    function polaroidGrid(files, captions) {
+        let html = '<div class="polaroid-grid">';
+        for (let i = 0; i < files.length; i++) {
+            const rot = (Math.random() * 6 - 3).toFixed(1);
+            html += `
+                <div class="polaroid" style="--rot:${rot}deg;">
+                    <img src="images/${files[i]}" alt="Memory">
+                    <div class="polaroid-caption">${captions[i] || '💕'}</div>
+                </div>
+            `;
+        }
+        html += '</div>';
+        return html;
+    }
+
+    const contents = {
+        // 1. LOVE LETTER
+        letterContent: `
+            <div class="scrapbook-letter">
+                <h2>💌 My Love Letter</h2>
+                <p><span class="emoji-big">💋</span> <span class="emoji-small">❤️</span> My dearest Abdullah, <span class="emoji-small">❤️</span> <span class="emoji-big">💋</span></p>
+                <p>Two years. Two whole years since you walked into my life and turned everything upside down in the best way possible. I still remember the day we met and thinking, who does this person think they are? We couldn't stand each other. Actually, let me be honest, I couldn't stand you, and you definitely couldn't stand me. We were oil and water, fire and ice, two people who had no business being in the same space. And look at us now. Two years in, and I can't stand being away from you. Not for a single day, not for a single hour, not for a single second if I'm being dramatic about it, which I absolutely am.</p>
+                ${polaroidGrid(['P1.JPG'], ['The day my fog cleared out.'])}
+                <p>It's wild how life works. Absolutely wild. You went from that person I lowkey hated, that person I'd avoid and roll my eyes at behind your back, to my best friend, my safe space, the one I told everything to. Every secret, every fear, every stupid thought that crossed my mind at 2am. You became the first person I wanted to call when something good happened and the only person I wanted to hold me when something fell apart. And then you had to go and confess and ruin our perfectly complicated friendship. I remember that moment so clearly, the way my heart stopped and my brain short circuited because I never saw it coming. Except you didn't ruin it. You made it better. You made everything better without even trying.</p>
+                <p>I took my time coming around, I know. I know I did. I made you wait, I made you wonder, I made you question whether I'd ever feel the same way. And I'm sorry for that, truly I am. But I needed to be sure. I needed to know that what I was feeling wasn't just gratitude or comfort or fear of being alone. I needed to sit with it, to let it grow, to let it become undeniable. And now? I have never been more sure of anything in my entire life. Not of my career, not of my choices, not of anything. Just you. Only you.</p>
+                <p>I love you. Like, obsessively love you. The kind of love that makes me forget to eat when I'm thinking about you too much. The kind that makes me replay our conversations in my head just to hear your voice again. The kind that makes me check my phone a hundred times hoping for a message from you. You're not just my boyfriend. You're my favorite thought, the one that sneaks up on me in the middle of a busy day and makes me smile for no reason. You're my first text in the morning, the one I reach for before I even get out of bed. You're my last goodnight, the voice in my ear that helps me fall asleep even when we're miles apart. And honestly? My entire obsession. I think about you constantly, and I don't even care how crazy that sounds because it's true.</p>
+                <p>Every single day I fall harder for you, and I didn't even think that was possible because I already loved you so much it scared me. It still scares me sometimes, how deep this goes, how much space you take up in my heart, how empty everything feels when you're not around. But it's a good kind of scared. The kind that reminds me I'm alive, that I'm capable of feeling something this huge, that I found someone worth risking everything for. I'm not scared of loving you. I'm scared of not loving you enough, but I know that's impossible because I give you every piece of me and I'd still want to give more.</p>
+                <p>We don't get to see each other as often as I'd want, and that's the hardest part. It breaks my heart every time we have to say goodbye, every time I watch you walk away and count the days until I get to see you again. But distance has never once made me doubt you. Not for a single moment. If anything, it's only made me realize how much I need you in my life, how essential you are to my happiness, how empty the days feel when you're not in them. The miles between us don't weaken what we have. They strengthen it. They remind me that what we have is real, that it can survive anything, that you're worth every single lonely night and every tearful goodbye.</p>
+                <p>You've been nothing but a gentleman through it all. Kind, patient, steady, mine. You've never raised your voice at me, never made me feel small, never made me question whether I mattered to you. You've held my hand through my worst days, celebrated my smallest wins, and loved me in ways I didn't even know I needed. You've been my anchor when I was drifting, my light when everything felt dark, my calm when my mind was chaos. You're everything I ever prayed for and didn't even know to ask.</p>
+                ${polaroidGrid(['P2.JPG'], ['The best day ever.'])}
+                <p>You're my best man, my boyfriend, the one I laugh with until we can't breathe, the one I cry with without feeling embarrassed, the one I can be completely, utterly myself around and never feel judged. And if I'm being completely honest? The man I want to marry. I don't say that lightly. I say it because I see it so clearly. I see our future together, a home filled with laughter, mornings drinking coffee in comfortable silence, arguments that end in hugs, growing old and still reaching for your hand like it's the first time. I see you standing on stage, looking at me like I'm the only person in the world, and me trying not to cry because I finally made it, I finally got to marry the love of my life. That's what I see when I think of you. That's what I want.</p>
+                <p>From enemies to forever. Who would've thought? Not me, not you, not anyone who watched us bicker and roll our eyes at each other. But that's the beauty of it, isn't it? That the people who annoy us the most end up being the ones who know us best. That the ones who challenge us end up being the ones who love us deepest. That the person I couldn't stand became the person I can't live without.</p>
+                <p>I love you more today than yesterday, and tomorrow? I'll love you even more. I'll keep loving you on the easy days and the hard ones, on the days when we're together and the ones when we're apart, when I'm easy to love and when I'm absolutely not. My love for you isn't conditional. It's not based on mood or circumstance or how many times you've annoyed me. It's just there, constant and deep, like the ocean or the sky or something else that doesn't know how to stop being.</p>
+                <p>You're it for me. You're the one. The only one. The last one. I don't need to look anywhere else because I've already found everything I'll ever need. I'm done searching, done wondering, done settling for anything less than this. You're my person, my home, my forever. And I'm so, so grateful that you're mine.</p>
+                <p>Happy two years, my love. Here's to the two we've had and the fifty more I'm demanding. I'd choose you in every lifetime, every universe, every version of reality. And I hope you know that.</p>
+                ${polaroidGrid(['P3.JPG'], ['I love your pretty smile keep smiling for me'])}
+                <p style="text-align:right; margin-top:20px;">I love you. Completely, obsessively, endlessly. And I always will.<br><br>Forever yours,<br><span style="font-size:1.5rem;">Amnaa 💗</span></p>
+            </div>
+        `,
+
+        // 2. FUTURE LETTER
+        futureContent: `
+            <div class="scrapbook-letter">
+                <h2>🌟 Our Future</h2>
+                <p><span class="emoji-big">💋</span> <span class="emoji-small">❤️</span> My love, <span class="emoji-small">❤️</span> <span class="emoji-big">💋</span></p>
+                <p>I spend so much time thinking about our life together. Not the big, flashy moments, but the quiet ones. The ones that feel like home. Let me tell you about all the little futures I see with you.</p>
+                <p>I see us on a grey, lazy afternoon. The sky is heavy with clouds, and the first drops of rain have just started tapping against the window. You're in the kitchen, making chai, your way. I've never tasted your chai, but I already know it's perfect. Because it's yours. Because you made it for me. I'm curled up on the sofa, watching you. The room smells like rain and warmth and you. You bring me a cup, our fingers brush. You sit beside me, and we just exist together. Then you look at me. You don't say a word. You just hold out your hand. We step outside, hand in hand, into the rain. It's cold and soft, falling around us. We stand there, side by side, letting the rain soak through our clothes, and we laugh.</p>
+                <p>I see us on Chand Raat. The moon is high and bright, and the streets are alive with excitement and celebration. Everyone is rushing to get their last minute preparations done, but you're not rushing. You're just focused on me. We stop at a stall, and you pick up a set of bangles, gold and red, catching the moonlight. You don't even ask me. You just take my hand, slide them onto my wrist, one by one, and step back to look at me. You smile that smile, the one that makes my heart stop. You make me wear them. And I wear them for you.</p>
+                <p>I see us in a mountain cabin, away from everything. The air is crisp and clean. The world feels so far away. We go there once a year, our little escape. We wake up to the sun rising over the peaks. We spend our days exploring trails and talking about everything and nothing. We sit on the porch at sunset, wrapped in blankets, watching the sky change colors. No phones. No distractions. No work. Just us.</p>
+                <p>I see us on a busy weekend, decorating our main house, the one where we'll raise a family, grow old, and create a lifetime of memories. We're painting the walls. You're teasing me about getting paint on my nose. I flick a little on you, and we laugh so hard we can barely hold the brushes. You walk over, wipe the paint off my nose with your thumb, and just look at me.</p>
+                <p>I see myself in the kitchen, making your favorite biryani. The whole house smells like it. I'm stirring the kheer, watching it thicken, adding cardamom because I know you love it. You're sitting on the countertop, watching me with that grin I can't resist. You start telling me your worst jokes, the ones you know make me roll my eyes. I roll them, but I laugh anyway. I always laugh. Because your joy is my joy.</p>
+                <p>I see us on a hill, watching the sun melt into the horizon, painting the sky in shades of gold and pink and orange. I'm lying down, my head in your lap. You're running your fingers through my hair. The breeze is soft and warm. You look down at me, and your eyes hold so much love. I close my eyes and just feel. Your hand in my hair, the warmth of the sun, the steady rhythm of your breath.</p>
+                <p>I see us on a cold winter night. We've built a blanket fort in the living room. Fairy lights are strung across the top, casting everything in a warm, golden glow. Pillows are everywhere. We have a mountain of snacks within arm's reach. We're watching movies together, wrapped in blankets, wrapped in each other. You reach for my hand, and I hold on like I never want to let go.</p>
+                <p>And here's the thing, my love. I don't just imagine these moments. I crave them. I ache for them. Every single day, I fall more in love with the life I see with you. All of it. All of you. That's what I want. That's who I want.</p>
+                <p style="text-align:right; margin-top:20px;">Forever yours,<br><span style="font-size:1.5rem;">Amnaa 💗</span></p>
+            </div>
+        `,
+
+        // 3. 100 REASONS
+        reasonsContent: `
+            <div class="scrapbook-letter">
+                <h2>💕 100 Reasons I Love You</h2>
+                <p><span class="emoji-big">💋</span> <span class="emoji-small">❤️</span> My dearest Abdullah, <span class="emoji-small">❤️</span> <span class="emoji-big">💋</span></p>
+                <p>I wanted to write down all the reasons I love you. Not because I need to remind myself, but because I want you to know, in detail, how deeply, completely, and obsessively I love you. 💗</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px 20px; font-size:0.9rem; line-height:1.8;">
+                    <p>1. The way you look at me like I'm the only person in the room.</p>
+                    <p>2. How you remember the small things I mention in passing.</p>
+                    <p>3. The sound of your laugh, especially when you're genuinely caught off guard.</p>
+                    <p>4. How patient you are with me when I'm being difficult.</p>
+                    <p>5. The way you hold my hand like you never want to let go.</p>
+                    <p>6. Your morning voice, all sleepy and rough.</p>
+                    <p>7. How you always make sure I've eaten.</p>
+                    <p>8. The way you challenge me to be better without making me feel less.</p>
+                    <p>9. Your random texts in the middle of the day just to check on me.</p>
+                    <p>10. How safe I feel when I'm with you.</p>
+                    <p>11. Your eyes, the way they hold so much warmth and depth.</p>
+                    <p>12. How you never make me feel like I'm too much.</p>
+                    <p>13. The way you say my name.</p>
+                    <p>14. Your commitment to us, even when things get hard.</p>
+                    <p>15. How you listen, truly listen, without interrupting.</p>
+                    <p>16. The way you make me feel beautiful even on my worst days.</p>
+                    <p>17. Your loyalty, to me and to everyone you love.</p>
+                    <p>18. How you always find a way to make me smile when I'm sad.</p>
+                    <p>19. The way you look at me after we've been apart for a while.</p>
+                    <p>20. Your honesty, even when it's hard to hear.</p>
+                    <p>21. The way you take care of me when I'm sick.</p>
+                    <p>22. How you’re my bestest friend before being my partner.</p>
+                    <p>23. How you never give up on me.</p>
+                    <p>24. The way you make ordinary days feel special.</p>
+                    <p>25. Your kindness to strangers.</p>
+                    <p>26. How you love me even when I don't love myself.</p>
+                    <p>27. The way you apologize when you're wrong.</p>
+                    <p>28. Your ambition and how hard you work.</p>
+                    <p>29. The way you include me in your plans.</p>
+                    <p>30. How you make me feel like I matter.</p>
+                    <p>31. Your smile, the one that lights up your whole face.</p>
+                    <p>32. How you make me feel heard.</p>
+                    <p>33. The way you're not afraid to be vulnerable with me.</p>
+                    <p>34. Your dedication to growing together.</p>
+                    <p>35. How you celebrate my wins like they're your own.</p>
+                    <p>36. Your scent, and how it feels like home.</p>
+                    <p>37. How you always defend me.</p>
+                    <p>38. The way you make me feel like I can do anything.</p>
+                    <p>39. Your genuine interest in my passions.</p>
+                    <p>40. How you don't try to change me.</p>
+                    <p>41. The way you show up, every single time.</p>
+                    <p>42. Your ability to calm me down when I'm spiraling.</p>
+                    <p>43. How you make me feel so deeply loved.</p>
+                    <p>44. The way you support my dreams.</p>
+                    <p>45. How you remember our little inside jokes.</p>
+                    <p>46. The way you compromise without making it feel like a loss.</p>
+                    <p>47. Your strength, even when you're tired.</p>
+                    <p>48. How talking to you feels like coming home after decades of hard work.</p>
+                    <p>49. The way you're proud to be with me.</p>
+                    <p>50. Your gentle nature with everyone around you.</p>
+                    <p>51. How you never make me guess where I stand with you.</p>
+                    <p>52. Your sense of adventure.</p>
+                    <p>53. How you make me feel like I'm home.</p>
+                    <p>54. The way you talk about our future together.</p>
+                    <p>55. Your vulnerability, and how you share it with me.</p>
+                    <p>56. How you respect my space when I need it.</p>
+                    <p>57. The way you check on me when I'm quiet.</p>
+                    <p>58. Your persistence in winning me over.</p>
+                    <p>59. How you make me feel like I'm your priority.</p>
+                    <p>60. Your voice, and how it soothes me.</p>
+                    <p>61. How you never make me feel dumb for my feelings.</p>
+                    <p>62. The way you trust me completely.</p>
+                    <p>63. Your ability to see the good in everyone.</p>
+                    <p>64. The way your hair is messy but perfect.</p>
+                    <p>65. The way you look at me with so much love.</p>
+                    <p>66. Your willingness to work through conflict.</p>
+                    <p>67. How you make me laugh until my stomach hurts.</p>
+                    <p>68. The way you care about my happiness.</p>
+                    <p>69. Your sweet good morning and goodnight texts.</p>
+                    <p>70. How you make me feel like I'm enough.</p>
+                    <p>71. Your consistency in loving me.</p>
+                    <p>72. How you always make time for me.</p>
+                    <p>73. The way you inspire me to be better.</p>
+                    <p>74. Your genuine heart.</p>
+                    <p>75. How you choose me every single day.</p>
+                    <p>76. The way you love my flaws.</p>
+                    <p>77. Your quiet moments of affection.</p>
+                    <p>78. How you never let me go to bed angry.</p>
+                    <p>79. The way you're my biggest cheerleader.</p>
+                    <p>80. Your ability to make me feel understood.</p>
+                    <p>81. How you make even the hard days bearable.</p>
+                    <p>82. The way you never judge me.</p>
+                    <p>83. Your sense of responsibility and reliability.</p>
+                    <p>84. How you see the best in me even when I can't.</p>
+                    <p>85. The way you love me unconditionally.</p>
+                    <p>86. Your presence, even in silence.</p>
+                    <p>87. How you make every moment feel meaningful.</p>
+                    <p>88. The way you're not just my boyfriend, but my best friend.</p>
+                    <p>89. The effort you put into us every single day.</p>
+                    <p>90. The way even when you're angry, your tone stays soft.</p>
+                    <p>91. The way you tease me and rage bait me just to get a reaction.</p>
+                    <p>92. The way you annoy me on purpose and then get a little afraid of me.</p>
+                    <p>93. How beautiful you are, inside and out.</p>
+                    <p>94. The way you make me feel like I'm the only woman in the world.</p>
+                    <p>95. How you hold me when I'm falling apart and put me back together.</p>
+                    <p>96. The way you love me through every season, every mood, every version of me.</p>
+                    <p>97. How you always find your way back to me no matter what.</p>
+                    <p>98. The way you make our story feel like a fairytale.</p>
+                    <p>99. How you're everything I never knew I needed.</p>
+                    <p>100. And most of all, because you're you. Just you. Perfectly, wonderfully, completely you. And that's more than enough. 💗</p>
+                </div>
+                <p style="text-align:right; margin-top:20px;">Forever yours,<br><span style="font-size:1.5rem;">Amnaa 💗</span></p>
+            </div>
+        `,
+
+        bouquetContent: `
+            <div style="text-align:center;">
+                <h2 style="color:#8b5a4b; font-family:'Snell Roundhand','Bradley Hand',cursive;">💐 For You, My Love</h2>
+                <img class="bouquet-float" src="images/B.I.PNG" alt="Bouquet" style="max-width:100%; border-radius:20px; max-height:350px; border:1px solid #e8d5c0;">
+                <p style="color:#b97f6b; margin:15px 0; font-family:'Bradley Hand',cursive; font-size:1.1rem;">These flowers are as beautiful as you make my life every day. 💗</p>
+            </div>
+        `
+    };
+
+    // ===== OVERLAY LOGIC =====
+    const overlay = document.getElementById('overlay');
+    const contentArea = document.getElementById('contentArea');
+    const closeBtn = document.getElementById('closeOverlay');
+
+    document.querySelectorAll('.envelope-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const target = item.getAttribute('data-target');
+            contentArea.innerHTML = contents[target] || '<p>Something went wrong 😅</p>';
+            overlay.classList.add('active');
+        });
+    });
+
+    document.getElementById('giftBox').addEventListener('click', () => {
+        contentArea.innerHTML = `
+            <div style="text-align:center;">
+                <h2 style="color:#8b5a4b; font-family:'Snell Roundhand','Bradley Hand',cursive;">🎁 A Gift for You</h2>
+                <div class="polaroid" style="width:200px; margin:0 auto; transform:none;">
+                    <img class="gift-img" src="images/selfie.heic" alt="Your gift">
+                    <div class="polaroid-caption">💗 Me, waiting for you 💗</div>
+                </div>
+                <div class="doodles">🤗💗✨🌸🎀</div>
+                <img src="images/Hugdoodle.PNG" alt="Hugging doodle" style="max-width:120px; margin:10px 0;">
+                <p style="color:#b97f6b; font-size:1.2rem; margin-top:10px; font-family:'Bradley Hand',cursive;">Sending you a million hugs and so much love! 💋🤗</p>
+                <p style="color:#b97f6b; font-family:'Bradley Hand',cursive;">You are my favorite person in the whole world. 💗</p>
+            </div>
+        `;
+        overlay.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.classList.remove('active');
+    });
+
+    // ===== INIT =====
+    updateRound();
+</script>
+</body>
+</html>
